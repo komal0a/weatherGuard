@@ -366,6 +366,18 @@ The application was tested for:
 
 ---
 
+# ✨ Additional Feature
+
+In addition to the required functionality, WeatherGuard includes a notification preference feature for Telegram users.
+
+Users can control their weather notifications directly through the Telegram bot:
+
+- Sending **`/stop`** or **`stop`** disables weather notifications for that Telegram chat.
+- Sending **`/start`** or **`start`** re-enables weather notifications.
+- The scheduler automatically skips users who have disabled notifications, ensuring they only receive alerts when notifications are enabled.
+
+This provides users with a simple way to manage their notification preferences without requiring access to the web application.
+
 # 🚀 Future Improvements
 
 - Role-based authorization using JWT middleware
