@@ -298,6 +298,18 @@ cd api
 
 npm install
 
+Create an .env file:
+
+PORT=5001
+
+MONGODB_URI=<your_mongodb_uri>
+
+CLERK_SECRET_KEY=<your_clerk_secret_key>
+
+TELEGRAM_BOT_TOKEN=<your_telegram_bot_token>
+
+OPENWEATHER_API_KEY=<your_openweather_api_key>
+
 npm run start:dev
 ```
 
@@ -309,6 +321,12 @@ npm run start:dev
 cd admin
 
 npm install
+
+Create an .env file:
+
+VITE_CLERK_PUBLISHABLE_KEY=<your_publishable_key>
+
+VITE_API_URL=http://localhost:5001
 
 npm run dev
 ```
