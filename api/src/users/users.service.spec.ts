@@ -17,6 +17,7 @@ describe('UsersService', () => {
             create: jest.fn(),
             find: jest.fn(),
             findByIdAndUpdate: jest.fn(),
+            findOneAndUpdate: jest.fn(),
             countDocuments: jest.fn(),
           },
         },
@@ -34,5 +35,19 @@ describe('UsersService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should disable notifications for a chat when stop is requested', async () => {
+    const findOneAndUpdate = jest.fn().mockResolvedValue({ telegramChatId: '123' });
+    const model = service['userModel'] as any;
+    model.findOneAndUpdate = findOneAndUpdate;
+
+    await service.setNotificationsEnabled('123', false);
+
+    expect(findOneAndUpdate).toHaveBeenCalledWith(
+      { telegramChatId: '123' },
+      { notificationsEnabled: false },
+      { returnDocument: 'after' },
+    );
   });
 });

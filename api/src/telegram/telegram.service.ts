@@ -60,6 +60,20 @@ export class TelegramService implements OnModuleInit {
 
       this.logger.log(`Incoming message from chat ${chatId}: ${text}`);
 
+      const normalizedText = text.trim().toLowerCase();
+
+      if (normalizedText === '/stop' || normalizedText === 'stop') {
+        await this.usersService.setNotificationsEnabled(String(chatId), false);
+        await this.sendMessage(chatId, '🛑 Notifications turned off. Send /start to resume weather alerts.');
+        return;
+      }
+
+      if (normalizedText === '/start' || normalizedText === 'start') {
+        await this.usersService.setNotificationsEnabled(String(chatId), true);
+        await this.sendMessage(chatId, '✅ WeatherGuard bot is active. Send any message and I will reply.');
+        return;
+      }
+
       if (text.startsWith('/start')) {
         await this.sendMessage(chatId, '✅ WeatherGuard bot is active. Send any message and I will reply.');
         return;

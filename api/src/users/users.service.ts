@@ -83,17 +83,34 @@ async connectTelegram(clerkId: string, chatId: string) {
     { clerkId },
     {
       telegramChatId: chatId,
+      notificationsEnabled: true,
     },
     {
       returnDocument: "after",
     },
   );
 }
+
+async setNotificationsEnabled(chatId: string, enabled: boolean) {
+  return this.userModel.findOneAndUpdate(
+    { telegramChatId: chatId },
+    {
+      notificationsEnabled: enabled,
+    },
+    {
+      returnDocument: 'after',
+    },
+  );
+}
+
 async getApprovedUsers() {
   return this.userModel.find({
     status: UserStatus.APPROVED,
     telegramChatId: {
       $ne: '',
+    },
+    notificationsEnabled: {
+      $ne: false,
     },
   });
 }
