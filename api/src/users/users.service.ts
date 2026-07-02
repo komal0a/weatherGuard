@@ -47,28 +47,32 @@ export class UsersService {
     id,
     {
       status: UserStatus.APPROVED,
-      telegramChatId: '1021570701',
     },
     {
-  returnDocument: 'after',
-}
+      returnDocument: 'after',
+    },
   );
 
-  console.log("User after update:", user);
+  console.log('User after update:', user);
+
+  if (!user?.telegramChatId) {
+    console.log('User does not have a Telegram chat ID yet. Skipping welcome message.');
+    return user;
+  }
 
   try {
     await this.telegramService.sendMessage(
-      user!.telegramChatId,
-      `🎉 Hello ${user!.name}!
+      user.telegramChatId,
+      `🎉 Hello ${user.name}!
 
 Your WeatherGuard access has been approved.
 
 You will now receive weather alerts automatically. 🌦️`,
     );
 
-    console.log("Telegram message sent successfully");
+    console.log('Telegram message sent successfully');
   } catch (err) {
-    console.error("Telegram Error:", err);
+    console.error('Telegram Error:', err);
   }
 
   return user;

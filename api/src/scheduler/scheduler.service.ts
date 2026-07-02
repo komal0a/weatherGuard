@@ -42,6 +42,11 @@ export class SchedulerService {
 💧 Humidity: ${weather.humidity}%`;
 
       for (const user of users) {
+        if (!user.telegramChatId) {
+          this.logger.warn(`Skipping alert for ${user.email}: no telegram chat id`);
+          continue;
+        }
+
         try {
           await this.telegramService.sendMessage(
             user.telegramChatId,
@@ -50,6 +55,8 @@ export class SchedulerService {
 
           this.logger.log(`Alert sent to ${user.email}`);
         } catch (error) {
+          console.error('Telegram Error:', error);
+
           this.logger.error(
             `Failed to send alert to ${user.email}`,
           );
