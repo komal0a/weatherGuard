@@ -272,7 +272,8 @@ _Add screenshot here_
 
 ## Telegram Notification
 
-_Add screenshot here_
+<img width="377" height="389" alt="image" src="https://github.com/user-attachments/assets/c358a099-6661-4dc2-bae9-74f0f10e2657" />
+
 
 ---
 
