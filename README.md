@@ -260,7 +260,8 @@ _Add screenshot here_
 
 ## User Dashboard
 
-_Add screenshot here_
+<img width="854" height="511" alt="image" src="https://github.com/user-attachments/assets/1be7e745-0f25-4d3c-b3f1-c2be3032c0ea" />
+
 
 ---
 
