@@ -254,7 +254,8 @@ WeatherGuard
 
 ## Landing Page
 
-_Add screenshot here_
+<img width="760" height="416" alt="image" src="https://github.com/user-attachments/assets/58a03649-c765-4d96-964d-4449b55f6c39" />
+
 
 ---
 
@@ -267,7 +268,8 @@ _Add screenshot here_
 
 ## Admin Dashboard
 
-_Add screenshot here_
+<img width="848" height="467" alt="image" src="https://github.com/user-attachments/assets/7835fa1c-2ca2-41c0-baa7-fdd6fad40516" />
+
 
 ---
 
@@ -278,33 +280,6 @@ _Add screenshot here_
 
 ---
 
-# ⚙️ Environment Variables
-
-## Backend (`api/.env`)
-
-```env
-PORT=5001
-
-MONGODB_URI=
-
-CLERK_SECRET_KEY=
-
-TELEGRAM_BOT_TOKEN=
-
-OPENWEATHER_API_KEY=
-```
-
----
-
-## Frontend (`admin/.env`)
-
-```env
-VITE_API_URL=http://localhost:5001
-
-VITE_CLERK_PUBLISHABLE_KEY=
-```
-
----
 
 # ▶️ Installation
 
